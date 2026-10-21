@@ -1,0 +1,120 @@
+<!-- Mobile Header Bar -->
+<div
+  class="md:hidden bg-slate-100 dark:bg-zinc-950 text-slate-800 dark:text-zinc-100 flex items-center justify-between p-4 shadow-xs border-b border-slate-200 dark:border-zinc-800/80 sticky top-0 z-40"
+>
+  <div class="flex items-center gap-2">
+    <mat-icon class="text-indigo-600 dark:text-indigo-400">nest_remote_comfort_sensor</mat-icon>
+    <span class="font-bold tracking-wide">GeoPulse</span>
+  </div>
+  <button
+    (click)="isSidebarOpen = !isSidebarOpen"
+    class="p-1 rounded-lg hover:bg-slate-200 dark:hover:bg-zinc-900 transition-colors focus:outline-none"
+  >
+    <mat-icon>{{ isSidebarOpen ? 'close' : 'menu' }}</mat-icon>
+  </button>
+</div>
+
+<!-- Mobile Backdrop Blur Overlay -->
+@if (isSidebarOpen) {
+  <div
+    (click)="isSidebarOpen = false"
+    class="md:hidden fixed inset-0 bg-black/30 dark:bg-black/60 backdrop-blur-xs z-40 transition-opacity"
+  ></div>
+}
+
+<!-- Main Sidebar Container Layout -->
+<div
+  [class.translate-x-0]="isSidebarOpen"
+  [class.-translate-x-full]="!isSidebarOpen"
+  class="bg-slate-50 dark:bg-zinc-900 text-slate-700 dark:text-zinc-300 h-screen w-64 p-4 flex flex-col justify-between select-none shadow-xl border-r border-slate-200/60 dark:border-zinc-800/50 fixed md:sticky top-0 left-0 z-50 transition-transform duration-300 ease-in-out md:translate-x-0"
+>
+  <!-- Navigation Stack Group -->
+  <div class="flex flex-col gap-6">
+    <!-- Branding Header Layout (Desktop) -->
+    <div
+      class="hidden md:flex flex-row gap-3 items-center p-3 rounded-xl bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800/80 shadow-xs"
+    >
+      <mat-icon class="text-indigo-600 dark:text-indigo-400">nest_remote_comfort_sensor</mat-icon>
+      <p class="text-xl font-bold tracking-wide text-slate-900 dark:text-white">GeoPulse</p>
+    </div>
+
+    <!-- Theme Switcher Utility Control Strip -->
+    <div
+      class="flex items-center justify-between px-3 py-2 rounded-lg bg-slate-100/60 dark:bg-zinc-950/40 border border-slate-200/40 dark:border-zinc-800/40"
+    >
+      <div class="flex items-center gap-2">
+        <mat-icon class="text-[16px] h-4 w-4 text-slate-400 dark:text-zinc-400">
+          {{ isDarkMode ? 'dark_mode' : 'light_mode' }}
+        </mat-icon>
+        <span class="text-xs font-medium text-slate-600 dark:text-zinc-400">Dark Mode</span>
+      </div>
+      <mat-slide-toggle [checked]="isDarkMode" (change)="onThemeToggle($event)" color="primary">
+      </mat-slide-toggle>
+    </div>
+
+    <!-- Dynamic Device Iteration Block -->
+    <div class="flex flex-col gap-2">
+      <p
+        class="text-xs font-semibold text-slate-400 dark:text-zinc-500 uppercase tracking-wider px-3 mb-1"
+      >
+        Active Devices
+      </p>
+
+      <ul class="list-none flex flex-col gap-1 p-0 m-0">
+        @for (device of devices; track device.id) {
+          <li>
+            <a
+              [class.bg-indigo-50]="device.active"
+              [class.text-indigo-700]="device.active"
+              [class.dark:bg-indigo-950/40]="device.active"
+              [class.dark:text-indigo-300]="device.active"
+              [class.text-slate-600]="!device.active"
+              [class.dark:text-zinc-400]="!device.active"
+              [class.hover:bg-slate-100]="!device.active"
+              [class.dark:hover:bg-zinc-800/60]="!device.active"
+              [class.hover:text-slate-900]="!device.active"
+              [class.dark:hover:text-zinc-100]="!device.active"
+              class="flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all group cursor-pointer"
+            >
+              <mat-icon
+                [class.text-indigo-600]="device.active"
+                [class.dark:text-indigo-400]="device.active"
+                [class.text-slate-400]="!device.active"
+                [class.dark:text-zinc-500]="!device.active"
+                class="group-hover:text-indigo-600 dark:group-hover:text-indigo-400 text-[16px] h-4 w-4 flex items-center justify-center"
+              >
+                settings_remote
+              </mat-icon>
+              <span class="text-sm">{{ device.name }}</span>
+            </a>
+          </li>
+        } @empty {
+          <li class="text-xs text-slate-400 dark:text-zinc-500 italic px-3 py-2">
+            No active devices found.
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+
+  <!-- Bottom Block Footer: User Profile Target Info Slot -->
+  <div class="border-t border-slate-200 dark:border-zinc-800/80 pt-4 mt-auto">
+    <div
+      class="flex items-center gap-3 p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-zinc-800/60 transition-colors cursor-pointer"
+    >
+      <div
+        class="h-10 w-10 rounded-full bg-slate-200 dark:bg-zinc-800 flex items-center justify-center border border-slate-300 dark:border-zinc-700 text-sm font-semibold text-slate-700 dark:text-zinc-300"
+      >
+        JD
+      </div>
+      <div class="flex flex-col min-w-0">
+        <p class="text-sm font-semibold text-slate-900 dark:text-white truncate">John Doe</p>
+        <p class="text-xs text-slate-400 dark:text-zinc-500 truncate">admin@geopulse.io</p>
+      </div>
+      <mat-icon
+        class="text-slate-400 dark:text-zinc-500 ml-auto text-[18px] h-4 w-4 flex items-center justify-center"
+        >more_vert</mat-icon
+      >
+    </div>
+  </div>
+</div>

@@ -1,0 +1,101 @@
+[
+  {
+    "id": "4a2b9f81c7e63d05a1b2c3d4e5f6a7b8",
+    "name": "Sensor-Nexus-Alpha",
+    "hardwareModel": "PulseNode-v2",
+    "firmwareVersion": "1.2.4",
+    "status": "online",
+    "batteryLevel": 90,
+    "lastPing": "2026-10-21T12:45:00.000Z",
+    "metricHistory": [
+      {
+        "timestamp": "2026-10-21T12:35:00.000Z",
+        "temperature": 22.4,
+        "humidity": 55,
+        "pressure": 1012.8,
+        "batteryVoltage": 4.12,
+        "cpuLoad": 12,
+        "memoryFree": 16420,
+        "rssi": -45,
+        "latency": 14
+      },
+      {
+        "timestamp": "2026-10-21T12:40:00.000Z",
+        "temperature": 22.6,
+        "humidity": 54,
+        "pressure": 1013.1,
+        "batteryVoltage": 4.11,
+        "cpuLoad": 18,
+        "memoryFree": 16380,
+        "rssi": -48,
+        "latency": 18
+      },
+      {
+        "timestamp": "2026-10-21T12:45:00.000Z",
+        "temperature": 22.5,
+        "humidity": 55,
+        "pressure": 1013.2,
+        "batteryVoltage": 4.10,
+        "cpuLoad": 15,
+        "memoryFree": 16350,
+        "rssi": -42,
+        "latency": 12
+      }
+    ]
+  },
+  {
+    "id": "f8e7d6c5b4a392817061524334251607",
+    "name": "Sensor-Nexus-Beta",
+    "hardwareModel": "PulseNode-v2-Pro",
+    "firmwareVersion": "2.0.1",
+    "status": "maintenance",
+    "batteryLevel": 15,
+    "lastPing": "2026-10-21T12:42:00.000Z",
+    "metricHistory": [
+      {
+        "timestamp": "2026-10-21T12:37:00.000Z",
+        "temperature": 44.1,
+        "humidity": 12,
+        "pressure": 1008.5,
+        "batteryVoltage": 3.42,
+        "cpuLoad": 92,
+        "memoryFree": 4120,
+        "rssi": -78,
+        "latency": 115
+      },
+      {
+        "timestamp": "2026-10-21T12:42:00.000Z",
+        "temperature": 45.2,
+        "humidity": 10,
+        "pressure": 1008.2,
+        "batteryVoltage": 3.35,
+        "cpuLoad": 98,
+        "memoryFree": 2048,
+        "rssi": -82,
+        "latency": 142
+      }
+    ]
+  },
+  {
+    "id": "11223344556677889900aabbccddeeff",
+    "name": "Sensor-Eco-Gamma",
+    "hardwareModel": "PulseNode-v1.5",
+    "firmwareVersion": "1.0.8",
+    "status": "offline",
+    "batteryLevel": 0,
+    "lastPing": "2026-10-21T11:00:00.000Z",
+    "metricHistory": [
+      {
+        "timestamp": "2026-10-21T11:00:00.000Z",
+        "temperature": -8.5,
+        "humidity": 89,
+        "pressure": 1015.4,
+        "batteryVoltage": 3.15,
+        "cpuLoad": 0,
+        "memoryFree": 18100,
+        "rssi": -95,
+        "latency": 850
+      }
+    ]
+  }
+]
