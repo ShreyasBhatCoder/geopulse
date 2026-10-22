@@ -5,7 +5,7 @@ Acc["length"] extends N
 
 type Range<F extends number, L extends number> = Exclude<Enumerate<L>, Enumerate<F>>;
 
-type Percentage = Range<0, 101>;
+export type Percentage = Range<0, 101>;
 
 type MetricLog = {
     timestamp: string; // time of the last recorded metric

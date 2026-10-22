@@ -49,7 +49,7 @@
     "hardwareModel": "PulseNode-v2-Pro",
     "firmwareVersion": "2.0.1",
     "status": "maintenance",
-    "batteryLevel": 15,
+    "batteryLevel": 14,
     "lastPing": "2026-10-21T12:42:00.000Z",
     "metricHistory": [
       {
@@ -82,7 +82,7 @@
     "hardwareModel": "PulseNode-v1.5",
     "firmwareVersion": "1.0.8",
     "status": "offline",
-    "batteryLevel": 0,
+    "batteryLevel": 100,
     "lastPing": "2026-10-21T11:00:00.000Z",
     "metricHistory": [
       {

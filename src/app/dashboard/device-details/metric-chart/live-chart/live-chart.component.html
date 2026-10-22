@@ -1,0 +1,21 @@
+<!-- Base Container: Removed min-h-screen to let height adapt to content natively -->
+<div class="w-full bg-[#f4f4f6] dark:bg-[#111115] p-3 sm:p-5 transition-colors duration-300">
+  
+  <!-- Top Layer Responsive Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mb-5">
+    
+    <!-- Temperature Gauge Card -->
+    <div #tempGaugeDiv class="h-50 bg-white dark:bg-[#1e1e24] rounded-lg shadow-md dark:shadow-black/30 border border-gray-200 dark:border-white/5 transition-all duration-300 hover:border-orange-500/30"></div>
+    
+    <!-- Humidity Gauge Card -->
+    <div #humidityGaugeDiv class="h-50 bg-white dark:bg-[#1e1e24] rounded-lg shadow-md dark:shadow-black/30 border border-gray-200 dark:border-white/5 transition-all duration-300 hover:border-blue-500/30"></div>
+    
+    <!-- Pressure Gauge Card -->
+    <div #pressureGaugeDiv class="h-50 md:col-span-2 lg:col-span-1 bg-white dark:bg-[#1e1e24] rounded-lg shadow-md dark:shadow-black/30 border border-gray-200 dark:border-white/5 transition-all duration-300 hover:border-green-500/30"></div>
+    
+  </div>
+  
+  <!-- Bottom Layer Timeline Panel: Made a tad shorter (from 520px/400px down to 420px/340px) -->
+  <div #timelineChartDiv class="w-full h-85 sm:h-105 bg-white dark:bg-[#1e1e24] rounded-lg shadow-md dark:shadow-black/30 border border-gray-200 dark:border-white/5 p-2 sm:p-4 box-border"></div>
+
+</div>

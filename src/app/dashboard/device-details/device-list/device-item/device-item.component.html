@@ -1,1 +1,75 @@
-<div></div>
+<div
+  class="flex items-center justify-between p-3 rounded-xl border shadow-xs transition-all select-none cursor-pointer"
+  [class.bg-indigo-50]="selected()"
+  [class.dark:bg-indigo-950/40]="selected()"
+  [class.border-indigo-500]="selected()"
+  [class.dark:border-indigo-500]="selected()"
+  [class.ring-2]="selected()"
+  [class.ring-indigo-500/30]="selected()"
+  [class.bg-white]="!selected()"
+  [class.dark:bg-zinc-950]="!selected()"
+  [class.border-slate-100]="!selected()"
+  [class.dark:border-zinc-800/80]="!selected()"
+  [class.hover:bg-slate-50]="!selected()"
+  [class.dark:hover:bg-zinc-900/40]="!selected()"
+
+  [matTooltip]="tooltipText()"
+  matTooltipClass="!whitespace-pre-line !bg-zinc-950/90 !text-zinc-200 !border !border-zinc-800/80 !p-3 !rounded-lg !shadow-xl !font-mono !text-[11px] !leading-relaxed !tracking-wide"
+  matTooltipShowDelay="200"
+  matTooltipPosition="right"
+>
+  <!-- Left Side: Status Dot & Meta Details -->
+  <div class="flex items-center gap-3 min-w-0">
+    <!-- Dynamic Status Indicator Conditional Stack -->
+    @switch (deviceItem().status) {
+      @case ('online') {
+        <!-- Green & Blinking / Pulsing Layout -->
+        <div class="relative flex h-2.5 w-2.5 items-center justify-center shrink-0">
+          <span
+            class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"
+          ></span>
+          <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
+        </div>
+      }
+      @case ('maintenance') {
+        <!-- Yellow / Amber & Static Layout -->
+        <div class="flex h-2.5 w-2.5 items-center justify-center shrink-0">
+          <span class="h-2 w-2 rounded-full bg-amber-500 shadow-xs shadow-amber-500/20"></span>
+        </div>
+      }
+      @default {
+        <!-- Offline: Gray & Static Layout -->
+        <div class="flex h-2.5 w-2.5 items-center justify-center shrink-0">
+          <span class="h-2 w-2 rounded-full bg-slate-400 dark:bg-zinc-600"></span>
+        </div>
+      }
+    }
+
+    <!-- Device textual identification block -->
+    <div class="flex flex-col min-w-0 leading-tight">
+      <p class="text-sm font-semibold text-slate-900 dark:text-zinc-100 truncate">
+        {{ deviceItem().name }}
+      </p>
+      <p class="text-xs text-slate-400 dark:text-zinc-500 font-medium capitalize mt-0.5">
+        {{ deviceItem().status }}
+      </p>
+    </div>
+  </div>
+
+  <!-- Right Side: Fluid Reactive Battery Metric Panel -->
+  
+  <div class="flex flex-col items-center justify-center gap-1 shrink-0 pl-2 text-center w-12">
+    <mat-icon
+      [style.color]="batteryInfo().color"
+      class="text-[22px]! h-6 w-6 flex items-center justify-center select-none"
+    >
+      {{ currentBatteryLevel() }}
+    </mat-icon>
+
+    <span class="text-[11px] font-mono font-medium text-slate-400 dark:text-zinc-500 leading-none">
+      {{ batteryInfo().percentage }}%
+    </span>
+  </div>
+
+  
+</div>

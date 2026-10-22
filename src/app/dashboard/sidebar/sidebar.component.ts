@@ -1,27 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSlideToggleChange, MatSlideToggle } from '@angular/material/slide-toggle';
+import { DeviceList } from '../device-details/device-list/device-list.component';
+import { ThemeService } from '../../theme-service.service';
 
 @Component({
-  imports: [MatIconModule, MatSlideToggle],
+  imports: [MatIconModule, MatSlideToggle, DeviceList],
   selector: 'app-sidebar',
   styleUrl: './sidebar.component.css',
   templateUrl: './sidebar.component.html',
 })
 export class Sidebar {
-  isSidebarOpen = false;
-  isDarkMode = false;
 
-  devices = [
-    { id: 'alpha', name: 'Device Alpha', active: true },
-    { id: 'beta', name: 'Device Beta', active: false },
-    { id: 'gamma', name: 'Device Gamma', active: false },
-  ];
+  private themeService = inject(ThemeService);
+
+  isSidebarOpen = false;
+  isDarkMode = this.themeService.isDarkTheme;
+
 
   onThemeToggle(event: MatSlideToggleChange): void {
-    this.isDarkMode = event.checked;
-
-    // Dead simple, standard JavaScript
-    document.documentElement.classList.toggle('dark', this.isDarkMode);
+    this.themeService.toggleTheme(event.checked);
   }
 }
