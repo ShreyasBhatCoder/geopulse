@@ -7,7 +7,7 @@ type Range<F extends number, L extends number> = Exclude<Enumerate<L>, Enumerate
 
 export type Percentage = Range<0, 101>;
 
-type MetricLog = {
+export type MetricLog = {
     timestamp: string; // time of the last recorded metric
     temperature: number; // °C (ideally between -20.0 and 50.0°C)
     humidity: Percentage; // %

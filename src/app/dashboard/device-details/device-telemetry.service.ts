@@ -1,4 +1,4 @@
-import { inject, Injectable, InjectionToken, Provider } from '@angular/core';
+import { inject, Injectable, InjectionToken, Provider, signal } from '@angular/core';
 import { IoTDevice, Percentage } from './device-list/device-item/device.model';
 import { HttpClient } from '@angular/common/http';
 import { toSignal } from '@angular/core/rxjs-interop';
@@ -7,16 +7,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 export class DeviceTelemetryService {
   private http = inject(HttpClient);
   devices = toSignal(this.http.get<IoTDevice[]>('/api'), { initialValue: [] });
-
-  /* 
-      battery_0_bar (0% to 5%)
-      battery_1_bar (5% to 20%)
-      battery_2_bar (20% to 35%)
-      battery_3_bar (35% to 50%)
-      battery_4_bar (50% to 65%)
-      battery_5_bar (65% to 80%)
-      battery_6_bar (80% to 100%)
-    */
+  selectedDevice = signal<IoTDevice | null>(null);
 
   getBatteryIcon(level: Percentage): string {
     switch (true) {

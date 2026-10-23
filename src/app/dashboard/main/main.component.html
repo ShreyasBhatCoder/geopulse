@@ -1,8 +1,23 @@
 <div class="dark:text-slate-400">
-    <h1 class="text-2xl font-bold mb-4">Welcome Admin</h1>
+  <h1 class="text-2xl font-bold mb-4">Welcome Admin</h1>
 
-    <app-metric-chart />
-
-
+  @if (selectedDevice()) {
+    @switch (selectedDevice()?.status) {
+      @case ('offline') {
+        <p class="text-xs font-medium text-red-500 dark:text-red-400 flex items-center gap-1.5">
+          <span class="h-1.5 w-1.5 rounded-full bg-red-500"></span> Device is offline
+        </p>
+      }
+      @case('maintenance') {
+        <p class="text-xs font-medium text-amber-500 dark:text-amber-400 flex items-center gap-1.5">
+          <span class="h-1.5 w-1.5 rounded-full bg-amber-500"></span> Device is under maintenance
+        </p>
+      }
+      @default {
+        <app-metric-chart />
+      }
+    }
+  } @else {
+    <p class="text-left italic">Select a device to view metrics</p>
+  }
 </div>
-

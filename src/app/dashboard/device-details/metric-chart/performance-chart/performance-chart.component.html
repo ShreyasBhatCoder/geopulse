@@ -1,0 +1,59 @@
+<div class="w-full bg-slate-50 dark:bg-zinc-900 p-4 sm:p-6 transition-colors duration-300">
+  
+  <!-- 2x2 Responsive Grid Matrix Matching Main Template Design -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+    
+    <!-- CPU Load Card Container -->
+    <div
+      class="flex flex-col bg-white dark:bg-zinc-950/40 rounded-xl shadow-xs border border-slate-200/60 dark:border-zinc-800/50 p-4 transition-all duration-300 hover:border-red-500/30 hover:shadow-md group"
+    >
+      <!-- Title Block -->
+      <div class="flex items-center justify-between mb-3 pb-2 border-b border-slate-100 dark:border-zinc-800/40">
+        <h3 class="text-xs font-bold tracking-wider text-slate-500 dark:text-zinc-400 uppercase">CPU Utilization</h3>
+        <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20 font-medium">% Load</span>
+      </div>
+      <!-- Chart Anchor -->
+      <div id="cpuChartDiv" class="w-full h-[180px] max-[678px]:h-[240px]"></div>
+    </div>
+
+    <!-- Memory Free Card Container -->
+    <div
+      class="flex flex-col bg-white dark:bg-zinc-950/40 rounded-xl shadow-xs border border-slate-200/60 dark:border-zinc-800/50 p-4 transition-all duration-300 hover:border-blue-500/30 hover:shadow-md group"
+    >
+      <!-- Title Block -->
+      <div class="flex items-center justify-between mb-3 pb-2 border-b border-slate-100 dark:border-zinc-800/40">
+        <h3 class="text-xs font-bold tracking-wider text-slate-500 dark:text-zinc-400 uppercase">Available Memory</h3>
+        <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 font-medium">KB Free</span>
+      </div>
+      <!-- Chart Anchor -->
+      <div id="memoryChartDiv" class="w-full h-[180px] max-[678px]:h-[240px]"></div>
+    </div>
+
+    <!-- RSSI Card Container -->
+    <div
+      class="flex flex-col bg-white dark:bg-zinc-950/40 rounded-xl shadow-xs border border-slate-200/60 dark:border-zinc-800/50 p-4 transition-all duration-300 hover:border-emerald-500/30 hover:shadow-md group"
+    >
+      <!-- Title Block -->
+      <div class="flex items-center justify-between mb-3 pb-2 border-b border-slate-100 dark:border-zinc-800/40">
+        <h3 class="text-xs font-bold tracking-wider text-slate-500 dark:text-zinc-400 uppercase">Signal Strength (RSSI)</h3>
+        <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 font-medium">dBm</span>
+      </div>
+      <!-- Chart Anchor -->
+      <div id="rssiChartDiv" class="w-full h-[180px] max-[678px]:h-[240px]"></div>
+    </div>
+
+    <!-- Latency Card Container -->
+    <div
+      class="flex flex-col bg-white dark:bg-zinc-950/40 rounded-xl shadow-xs border border-slate-200/60 dark:border-zinc-800/50 p-4 transition-all duration-300 hover:border-amber-500/30 hover:shadow-md group"
+    >
+      <!-- Title Block -->
+      <div class="flex items-center justify-between mb-3 pb-2 border-b border-slate-100 dark:border-zinc-800/40">
+        <h3 class="text-xs font-bold tracking-wider text-slate-500 dark:text-zinc-400 uppercase">Network Latency</h3>
+        <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20 font-medium">ms Jitter</span>
+      </div>
+      <!-- Chart Anchor -->
+      <div id="latencyChartDiv" class="w-full h-[180px] max-[678px]:h-[240px]"></div>
+    </div>
+
+  </div>
+</div>

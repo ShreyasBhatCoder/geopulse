@@ -1,5 +1,5 @@
 import { HttpClient, provideHttpClient } from '@angular/common/http';
-import { Component, DestroyRef, inject, OnInit } from '@angular/core';
+import { Component, DestroyRef, effect, inject, OnInit } from '@angular/core';
 import {
   concatMap,
   delay,
@@ -17,6 +17,7 @@ import { IoTDevice } from './device-details/device-list/device-item/device.model
 import { Sidebar } from './sidebar/sidebar.component';
 import { Main } from './main/main.component';
 import { DEVICE_TELEMETRY, DeviceTelemetryService, provideDeviceService } from './device-details/device-telemetry.service';
+import { randomDeviceMetricLog } from "../../../backend/utils/randomize";
 
 @Component({
   imports: [Sidebar, Main],
@@ -25,13 +26,21 @@ import { DEVICE_TELEMETRY, DeviceTelemetryService, provideDeviceService } from '
   templateUrl: './dashboard.component.html',
   providers: [provideDeviceService]
 })
-export class Dashboard implements OnInit {
+export class Dashboard {
   
   private deviceService = inject(DEVICE_TELEMETRY);
   private http = inject(HttpClient);
   private destroyRef = inject(DestroyRef);
 
-  ngOnInit() {}
+
+  // constructor() {
+  //   effect(() => {
+  //     let selectedDevice = this.deviceService.selectedDevice();
+  //     if(selectedDevice) {
+  //       console.log(`Device selected: ${selectedDevice.name}`);
+  //     }
+  //   })
+  // }
 
   
 }

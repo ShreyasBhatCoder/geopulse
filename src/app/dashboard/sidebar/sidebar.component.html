@@ -29,10 +29,10 @@
   class="bg-slate-50 dark:bg-zinc-900 text-slate-700 dark:text-zinc-300 h-screen w-64 p-4 flex flex-col justify-between select-none shadow-xl border-r border-slate-200/60 dark:border-zinc-800/50 fixed md:sticky top-0 left-0 z-50 transition-transform duration-300 ease-in-out md:translate-x-0"
 >
   <!-- Navigation Stack Group -->
-  <div class="flex flex-col gap-6">
+  <div class="flex flex-col gap-4 flex-1 min-h-0">
     <!-- Branding Header Layout (Desktop) -->
     <div
-      class="hidden md:flex flex-row gap-3 items-center p-3 rounded-xl bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800/80 shadow-xs"
+      class="hidden md:flex flex-row gap-3 items-center p-3 rounded-xl bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800/80 shadow-xs shrink-0"
     >
       <mat-icon class="text-indigo-600 dark:text-indigo-400">nest_remote_comfort_sensor</mat-icon>
       <p class="text-xl font-bold tracking-wide text-slate-900 dark:text-white">GeoPulse</p>
@@ -40,7 +40,7 @@
 
     <!-- Theme Switcher Utility Control Strip -->
     <div
-      class="flex items-center justify-between px-3 py-2 rounded-lg bg-slate-100/60 dark:bg-zinc-950/40 border border-slate-200/40 dark:border-zinc-800/40"
+      class="flex items-center justify-between px-3 py-2 rounded-lg bg-slate-100/60 dark:bg-zinc-950/40 border border-slate-200/40 dark:border-zinc-800/40 shrink-0"
     >
       <div class="flex items-center gap-2">
         <mat-icon class="text-[16px] h-4 w-4 text-slate-400 dark:text-zinc-400">
@@ -53,7 +53,7 @@
     </div>
 
     <!-- Dynamic Device Iteration Block -->
-    <app-device-list />
+    <app-device-list class="flex-1 min-h-0 flex flex-col" />
   </div>
 
   <!-- Bottom Block Footer: User Profile Target Info Slot -->

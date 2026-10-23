@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { DEVICE_TELEMETRY, DeviceTelemetryService, provideDeviceService } from '../device-telemetry.service';
+import { DEVICE_TELEMETRY } from '../device-telemetry.service';
 import { DeviceItem } from './device-item/device-item.component';
 import { IoTDevice } from './device-item/device.model';
 
@@ -8,8 +8,7 @@ import { IoTDevice } from './device-item/device.model';
   imports: [MatIconModule, DeviceItem],
   selector: 'app-device-list',
   styleUrl: './device-list.component.css',
-  templateUrl: './device-list.component.html',
-  providers: [provideDeviceService]
+  templateUrl: './device-list.component.html'
 })
 export class DeviceList {
   private deviceService = inject(DEVICE_TELEMETRY);
@@ -19,5 +18,6 @@ export class DeviceList {
 
   selectDevice(device: IoTDevice) {
     this.selectedDeviceId.set(device.id);
+    this.deviceService.selectedDevice.set(device);
   }
 }
